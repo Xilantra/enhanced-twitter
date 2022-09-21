@@ -1,0 +1,365 @@
+/* 
+  Enhanced Twitter
+  @xilantra
+  https://arc.net/e/E7D0C27B-9A71-4DEB-B28C-20CF8092C241
+  Last updated: September 22 2022
+*/
+
+/* Note: */
+/* Remove backdrop filter if you have any performance issues */
+/* Currently no solution for overlapped hamburger button with the detailed tweet modal window */
+
+/* Hamburger button */
+.btn-menu {
+  position: fixed;
+  right: 7px;
+  top: 7px;
+  padding: 2px 8px 4px;
+  border-radius: 50%;
+  border: 0;
+  background-color: rgba(15, 20, 25, 0.1);
+  color: rgb(15, 20, 25);
+  font-size: 32px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.btn-menu:hover,
+.bg-default.is-active .btn-menu:hover {
+  background-color: rgba(15, 20, 25, 0.1);
+}
+
+.bg-dimmed .btn-menu {
+  color: rgba(247, 249, 249);
+}
+
+.bg-dimmed .btn-menu:hover,
+.bg-dimmed.is-active .btn-menu:hover,
+.bg-dimmed .btn-menu {
+  background-color: rgba(247, 249, 249, 0.1);
+}
+
+.bg-dark .btn-menu {
+  color: rgba(247, 249, 249);
+}
+
+.bg-dark .btn-menu:hover,
+.bg-dark.is-active .btn-menu:hover,
+.bg-dark .btn-menu {
+  background-color: rgba(247, 249, 249, 0.1);
+}
+
+.bg-default.is-active .btn-menu,
+.bg-dimmed.is-active .btn-menu,
+.bg-dark.is-active .btn-menu {
+  background-color: transparent;
+}
+
+/* The right sidebar */
+.is-active [aria-label="Trending"] {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateX(48px);
+}
+
+/* The right sidebar */
+[aria-label="Trending"] {
+  transform: translateX(0px);
+}
+
+/* Fast transition */
+/* The right sidebar */
+[aria-label="Trending"],
+/* Show replies button */
+[data-testid="cellInnerDiv"] .r-19u6a5r:not([data-testid="tweetButton"]):not([data-testid="tweetButtonInline"]) {
+  transition: all .2s ease-in-out;
+}
+
+/* Tweet card background */
+/* Current problem: Tweet with reply border-radius  */
+
+.r-qklmqi {
+  margin-bottom: 8px !important;
+}
+
+/* Default */
+/* Separate border radius from the lightbox/popup */
+[data-testid="tweet"],
+[data-testid="cellInnerDiv"] [role="article"] {
+    /* margin-top: 16px !important; */
+    border-radius: 16px;
+}
+
+/* Default */
+[data-testid="tweet"],
+[data-testid="cellInnerDiv"] [role="article"]
+/* Media lightbox */
+/* [aria-modal="true"] .r-yfoy6g  */
+{
+    /* margin-top: 16px !important; */
+    background: rgb(247, 249, 249);
+}
+
+.bg-dimmed [data-testid="tweet"],
+.bg-dimmed [data-testid="cellInnerDiv"] [role="article"]
+/* Media lightbox */
+/* .bg-dimmed [aria-modal="true"]  .r-yfoy6g  */
+{
+  /* background: rgba(0, 0, 0, 0.16); */
+  background: rgb(19 25 34);
+}
+
+.bg-dark [data-testid="tweet"],
+.bg-dark [data-testid="cellInnerDiv"] [role="article"]
+/* Media lightbox */
+/* .bg-dark [aria-modal="true"]  .r-yfoy6g  */
+{
+  background: rgb(17, 16, 16);
+}
+
+/* Disable tweets background if it's a conversation/thread page */
+/* [aria-label="Timeline: Conversation"] [data-testid="tweet"],
+[aria-label="Timeline: Conversation"] [data-testid="cellInnerDiv"] [role="article"] {
+  margin-top: 0 !important;
+  background: transparent;
+} */
+
+/* Show replies button on thread */
+[data-testid="cellInnerDiv"] .r-19u6a5r:not([data-testid="tweetButton"]):not([data-testid="tweetButtonInline"]) {
+  margin-right: 12px !important;
+  margin-bottom: 8px !important;
+  background: rgb(0, 0, 0, 0.1);
+  border-radius: 0 0 16px 16px;
+  /* box-shadow:inset 0 8px 8px 0 rgba(0,0,0,0.1); */
+}
+
+/* Show replies button on thread background */
+.bg-dimmed [data-testid="cellInnerDiv"] .r-19u6a5r:not([data-testid="tweetButton"]):not([data-testid="tweetButtonInline"]):hover {
+  background: rgb(14 20 27);
+}
+
+.bg-dark [data-testid="cellInnerDiv"] .r-19u6a5r:not([data-testid="tweetButton"]):not([data-testid="tweetButtonInline"]):hover {
+  background: rgb(24 24 24);
+}
+
+/* Open photo modal popup thread */
+[aria-label="Timeline: Conversation"] {
+  padding: 8px !important;
+}
+
+/* Reset for link preview */
+[data-testid="developerBuiltCard"] .r-19u6a5r {
+  margin-right: unset !important;
+  margin-bottom: unset !important;
+  background: unset;
+  border-radius: unset;
+}
+
+/* Add more tweet */
+a.css-4rbku5.css-18t94o4.css-1dbjc4n.r-1loqt21.r-1ny4l3l.r-1udh08x.r-ymttw5.r-1vvnge1.r-o7ynqc.r-6416eg {
+    border-radius: 0 0 16px 16px;
+    margin-left: 12px;
+    margin-right: 12px;
+    padding-left: 4px;
+    /* box-shadow:inset 0 8px 8px 0 rgba(0,0,0,0.1); */
+}
+
+/* Show this thread button on card */
+[data-testid="tweet"] a.css-4rbku5.css-18t94o4.css-1dbjc4n.r-1loqt21.r-1ny4l3l.r-1udh08x.r-ymttw5.r-1vvnge1.r-o7ynqc.r-6416eg {
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  margin-bottom: 8px;
+  border-radius: 32px;
+}
+
+/* Bottom cards border - bg-dark */
+.r-1igl3o0,
+/* Bottom cards border - bg-dimmed */
+.r-qklmqi,
+/* Main left right border */
+.r-1ljd8xs,
+/* Messages page border */
+[aria-label="Section details"],
+/* Messages input top border */
+.r-2sztyj,
+/* Detailed tweet card icons border */
+.r-5kkj8d {
+  border: none !important
+}
+
+/* What's happening bottom border */
+/* bg-default*/
+.r-1sw30gj,
+/* bg-dark*/
+.r-gu4em3,
+/* bg-dimmed */
+.r-kuekak {
+  background-color: transparent !important;
+}
+
+/* What's happening bottom spacing */
+/* .css-1dbjc4n.r-iphfwy */
+.css-1dbjc4n.r-14lw9ot.r-oyd9sg {
+    padding-bottom: 32px;
+}
+
+/* The more menu on the left side - 3 dots */
+/* .r-qo02w8[role="menu"] */
+.css-1dbjc4n.r-kemksi.r-z2wwpe.r-qo02w8.r-j2cz3j.r-1udh08x.r-1rnoaur.r-1r851ge.r-1xcajam.r-ipm5af {
+  top: 16px !important;
+}
+
+/* Transition */
+/* Our injected hamburger button */
+.btn-menu,
+/* Left menu column */
+header[role="banner"],
+/* Center column */
+[data-testid="primaryColumn"],
+/* The bottom Messages drawer */
+[data-testid="DMDrawer"],
+/* Icons on tweet cards */
+.r-1mdbhws,
+.r-3qxfft,
+/* 3 dots on tweet card */
+.r-1joea0r {
+  transition: all .3s ease-in-out;
+}
+
+/* Center column */
+.is-active [data-testid="primaryColumn"] {
+  margin-left: 56px;
+}
+
+/* The bottom Messages drawer */
+.is-active [data-testid="DMDrawer"] {
+  visibility: hidden;
+  opacity: 0;
+  transform: translateY(48px);
+}
+
+/* The bottom Messages drawer */
+[data-testid="DMDrawer"] {
+  transform: translateY(1px);
+}
+
+/* The bottom Messages drawer */
+[data-testid="DMDrawer"],
+/* The bottom Messages drawer header */
+.r-1xc7w19[data-testid="DMDrawerHeader"],
+/* Remove background on profile's avatar */
+/* bg-default */
+.css-1dbjc4n.r-14lw9ot.r-1pi2tsx.r-13qz1uu,
+.css-1dbjc4n.r-14lw9ot.r-sdzlij.r-1wyvozj.r-1udh08x.r-633pao.r-u8s1d.r-1v2oles.r-desppf,
+.css-1dbjc4n.r-12181gd.r-1pi2tsx.r-1ny4l3l.r-o7ynqc.r-6416eg.r-13qz1uu,
+/* bg-dark */
+.css-1dbjc4n.r-1adg3ll.r-16l9doz.r-6gpygo.r-2o1y69.r-1v6e3re.r-bztko3.r-1xce0ei .r-kemksi,
+.css-1dbjc4n.r-1adg3ll.r-16l9doz.r-6gpygo.r-2o1y69.r-1v6e3re.r-bztko3.r-1xce0ei .r-172uzmj,
+/* Avatar: bg-dimmed */
+.css-1dbjc4n.r-yfoy6g.r-sdzlij.r-1wyvozj.r-1udh08x.r-633pao.r-u8s1d.r-1v2oles.r-desppf,
+.css-1dbjc4n.r-yfoy6g.r-1pi2tsx.r-13qz1uu {
+  background-color: transparent !important;
+}
+
+/* Remove background on profile's avatar on hover */
+/* bg-default */
+.css-1dbjc4n.r-12181gd.r-1pi2tsx.r-1ny4l3l.r-o7ynqc.r-6416eg.r-13qz1uu,
+/* bg-dark */
+.css-1dbjc4n.r-1adg3ll.r-16l9doz.r-6gpygo.r-2o1y69.r-1v6e3re.r-bztko3.r-1xce0ei .r-172uzmj {
+  box-shadow: none !important;
+}
+
+/* The bottom Messages drawer opened background */
+[data-testid="DMDrawer"] .r-kemksi {
+  background-color: rgba(0, 0, 0, 0.4) !important;
+  /* Remove backdrop filter if you have performance issues */
+  backdrop-filter: blur(12px);
+}
+
+/* The bottom Messages drawer / More menu / Popup */
+/* bg-dark */
+.r-qo02w8,
+/* bg-dimmed */
+.r-xnswec {
+  box-shadow: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+/* New tweets available pill notification with/without avatars */
+/* bg-dark */
+.r-1uusn97,
+/* bg-dimmed */
+.r-l5o3uw {
+    backdrop-filter: blur(4px);
+    background-color: rgb(29 155 240 / 80%) !important;
+}
+
+/* Left menu */
+.is-active header[role="banner"],
+/* Reply/Retweet/Like/Share icons on tweet card */
+.r-1mdbhws,
+/* Icons on detailed card */
+.r-3qxfft {
+  opacity: 0.4;
+}
+
+/* 3 dots on tweet card */
+[data-testid="tweet"] .r-1joea0r,
+/* 3 dots on trend card */
+[aria-label="Timeline: Trending now"] .r-1joea0r {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+/* Left menu */
+header[role="banner"]:hover,
+/* Reply/Retweet/Like/Share icons on tweet card */
+[data-testid="tweet"]:hover .r-1mdbhws,
+/* Icons on detailed card */
+[data-testid="tweet"]:hover .r-3qxfft,
+/* 3 dots on tweet card */
+[data-testid="tweet"]:hover .r-1joea0r,
+/* 3 dots on trend card */
+[aria-label="Timeline: Trending now"] [data-testid="trend"]:hover .r-1joea0r  {
+  opacity: 1;
+}
+
+/* 3 dots on tweet card */
+[data-testid="tweet"]:hover .r-1joea0r,
+/* 3 dots on trend card */
+[aria-label="Timeline: Trending now"] [data-testid="trend"]:hover .r-1joea0r {
+  transform: scale(1);
+}
+
+/* New tweet modal window */
+.css-1dbjc4n.r-kemksi.r-1867qdf.r-16y2uox.r-1wbh5a2 {
+  padding-bottom: 8px;
+}
+
+/* New tweet modal window */
+.css-1dbjc4n.r-kemksi.r-1867qdf.r-16y2uox.r-1wbh5a2,
+/* New tweets available pill notification text */
+/* bg-dark */
+.r-1uusn97,
+/* bg-dimmed */
+.r-l5o3uw {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.12) !important;
+}
+
+/* View tweet button on lightbox/detailed photo tweet */
+.css-1dbjc4n.r-1awozwy.r-1loqt21.r-1777fci.r-xyw6el.r-u8s1d.r-zchlnj.r-ipm5af {
+  top: 48px;
+}
+
+/* See new tweet button */
+/* .r-1pl7oy7 */
+[aria-label="Timeline: Your Home Timeline"] .r-1pl7oy7,
+/* Show more replies */
+.css-18t94o4.css-1dbjc4n.r-1777fci.r-1pl7oy7.r-1ny4l3l.r-o7ynqc.r-6416eg.r-13qz1uu {
+  border-radius: 64px;
+}
+
+
+
+
