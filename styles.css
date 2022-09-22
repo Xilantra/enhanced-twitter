@@ -93,7 +93,9 @@
 
 /* Default */
 [data-testid="tweet"],
-[data-testid="cellInnerDiv"] [role="article"]
+[data-testid="cellInnerDiv"] [role="article"],
+/* See new tweet button */
+[aria-label="Timeline: Your Home Timeline"] .r-1pl7oy7:hover
 /* Media lightbox */
 /* [aria-modal="true"] .r-yfoy6g  */
 {
@@ -102,7 +104,9 @@
 }
 
 .bg-dimmed [data-testid="tweet"],
-.bg-dimmed [data-testid="cellInnerDiv"] [role="article"]
+.bg-dimmed [data-testid="cellInnerDiv"] [role="article"],
+/* See new tweet button */
+.bg-dimmed [aria-label="Timeline: Your Home Timeline"] .r-1pl7oy7:hover
 /* Media lightbox */
 /* .bg-dimmed [aria-modal="true"]  .r-yfoy6g  */
 {
@@ -111,7 +115,9 @@
 }
 
 .bg-dark [data-testid="tweet"],
-.bg-dark [data-testid="cellInnerDiv"] [role="article"]
+.bg-dark [data-testid="cellInnerDiv"] [role="article"],
+/* See new tweet button */
+.bg-dark [aria-label="Timeline: Your Home Timeline"] .r-1pl7oy7:hover
 /* Media lightbox */
 /* .bg-dark [aria-modal="true"]  .r-yfoy6g  */
 {
@@ -137,10 +143,6 @@
 /* Show replies button on thread background */
 .bg-dimmed [data-testid="cellInnerDiv"] .r-19u6a5r:not([data-testid="tweetButton"]):not([data-testid="tweetButtonInline"]):hover {
   background: rgb(14 20 27);
-}
-
-.bg-dark [data-testid="cellInnerDiv"] .r-19u6a5r:not([data-testid="tweetButton"]):not([data-testid="tweetButtonInline"]):hover {
-  background: rgb(24 24 24);
 }
 
 /* Open photo modal popup thread */
@@ -201,7 +203,7 @@ a.css-4rbku5.css-18t94o4.css-1dbjc4n.r-1loqt21.r-1ny4l3l.r-1udh08x.r-ymttw5.r-1v
 
 /* What's happening bottom spacing */
 /* .css-1dbjc4n.r-iphfwy */
-.css-1dbjc4n.r-14lw9ot.r-oyd9sg {
+.css-1dbjc4n.r-iphfwy .css-1dbjc4n.r-oyd9sg {
     padding-bottom: 32px;
 }
 
@@ -288,6 +290,7 @@ header[role="banner"],
 }
 
 /* New tweets available pill notification with/without avatars */
+/* Blue only for now. I'm too lazy to check for the other color theme */
 /* bg-dark */
 .r-1uusn97,
 /* bg-dimmed */
@@ -360,6 +363,7 @@ header[role="banner"]:hover,
 .css-18t94o4.css-1dbjc4n.r-1777fci.r-1pl7oy7.r-1ny4l3l.r-o7ynqc.r-6416eg.r-13qz1uu {
   border-radius: 64px;
 }
+
 
 
 
