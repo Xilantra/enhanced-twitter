@@ -3,7 +3,7 @@
   @xilantra
   https://arc.net/e/E7D0C27B-9A71-4DEB-B28C-20CF8092C241
   https://github.com/Xilantra/enhanced-twitter
-  Last updated: September 20 2022
+  Last updated: Jan 10 2023
 */
 
 const menuBtn = document.createElement("button");
@@ -19,28 +19,31 @@ body.prepend(menuBtn);
 const toggleBtn = document.querySelector(".btn-menu");
 
 // Toggle hamburger button
-toggleBtn.addEventListener("click", ()=>{
-  bodyClass.toggle("is-active");
+toggleBtn.addEventListener("click", () => {
+  bodyClass.contains("is-active") ? bodyClass.remove("is-active") : bodyClass.add("is-active");
 });
 
-
 const style = getComputedStyle(body);
-const bgDark = 'rgb(0, 0, 0)';
-const bgDimmed = 'rgb(21, 32, 43)';
-const bgDefault = 'rgb(255, 255, 255)';
+
+// Define CSS variables
+document.documentElement.style.setProperty("--bg-dark", "rgb(0, 0, 0)");
+document.documentElement.style.setProperty("--bg-dimmed", "rgb(21, 32, 43)");
+document.documentElement.style.setProperty("--bg-default", "rgb(255, 255, 255)");
+
+const bgDark = style.getPropertyValue("--bg-dark");
+const bgDimmed = style.getPropertyValue("--bg-dimmed");
+const bgDefault = style.getPropertyValue("--bg-default");
 const backgroundColor = style.backgroundColor;
-// console.log(backgroundColor)
 
 // Detect theme used
-if (backgroundColor == bgDark) {
+switch (backgroundColor) {
+  case bgDark:
     bodyClass.add("bg-dark");
-  } else if(backgroundColor == bgDimmed) {
+    break;
+  case bgDimmed:
     bodyClass.add("bg-dimmed");
-  } else if(backgroundColor == bgDefault) {
+    break;
+  case bgDefault:
     bodyClass.add("bg-default");
-};
-
-
-
-
-
+    break;
+}
